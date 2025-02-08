@@ -8,5 +8,8 @@
   "type": "module",
   "scripts": {
     "test": "node test/sampletest.js"
+  },
+  "dependencies": {
+    "log4js": "^6.9.1"
   }
 }
