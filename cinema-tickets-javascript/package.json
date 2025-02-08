@@ -10,6 +10,7 @@
     "test": "node test/sampletest.js"
   },
   "dependencies": {
+    "jest": "^29.7.0",
     "log4js": "^6.9.1"
   }
 }

@@ -102,17 +102,23 @@ export default class TicketService {
     }
     return totalSeats;
   }
-  //calculates the total price of tickets
-  #totalPrice(ticketTypeRequests) {
+  /*calculates the total price of tickets
+  Current implementation has GBP value hardcoded
+  For future implementation of different currencies
+  */
+
+  #totalPrice(ticketTypeRequests, currency = GBP) {
 
     let totalCost = 0;
     const prices = {INFANT : 0, CHILD : 15, ADULT : 25};
+    const conversion_Rates = {USD : 1.25, EUR : 1.15, GBP : 1};
+    const rate = conversion_Rates[currency] || 1;
 
     for(let req of ticketTypeRequests) {
       const ticketCost = prices[req.getTicketType()];
       totalCost += ticketCost*req.getNoOfTickets();
     }
     
-    return totalCost;
+    return totalCost * rate;
   }
 }
